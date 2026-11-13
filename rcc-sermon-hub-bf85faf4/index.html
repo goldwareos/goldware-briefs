@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Sermon Hub test on RCC · GoldWare (internal)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0B0B0A;--card:#161511;--line:rgba(255,255,255,.08);
+    --text:#F2EEE4;--soft:#CFCCC1;--muted:#A7A498;
+    --gold:#D3AE5F;--gold2:#F3D68C;--goldgrad:linear-gradient(135deg,#C99F4E 0%,#E7C67C 55%,#F3D68C 100%);
+    --navy:#0F2140;--rccgold:#E3C27E;--cream:#FBF6EC;
+    --yes:#6FCF97;--part:#F2C94C;--no:#EB8C7A;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;font-family:"DM Sans",ui-sans-serif,system-ui,sans-serif;color:var(--soft);background:var(--bg);line-height:1.6;font-size:16px;-webkit-font-smoothing:antialiased}
+  body:before{content:"";position:fixed;inset:0;pointer-events:none;background:radial-gradient(120% 60% at 50% 0%,rgba(211,174,95,.10),transparent 60%);z-index:0}
+  main,header,nav,footer{position:relative;z-index:1}
+  a{color:var(--gold2)}
+  .wrap{max-width:920px;margin:0 auto;padding:0 22px}
+  h1,h2{font-family:"Instrument Serif",Georgia,serif;font-weight:400;color:var(--text);letter-spacing:-.01em}
+  h1 i,h2 i{color:var(--gold);font-style:italic}
+  b,strong{color:var(--text);font-weight:600}
+  .topbar{display:flex;align-items:center;justify-content:space-between;padding:22px 0}
+  .brand{display:flex;align-items:center;gap:10px;color:var(--text);font-weight:600;font-size:20px;text-decoration:none}
+  .brand img{height:24px}
+  .brand em{font-style:normal}
+  .brand span{color:var(--gold)}
+  .int{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:6px 12px}
+  header{padding-bottom:30px}
+  .eyebrow{display:flex;align-items:center;gap:10px;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);font-weight:600;margin:40px 0 14px}
+  .eyebrow:before{content:"";width:7px;height:7px;background:var(--gold);transform:rotate(45deg)}
+  h1{font-size:54px;line-height:1.04;margin:0 0 18px}
+  header p{max-width:700px;color:var(--soft);font-size:17px;margin:0}
+  .client{margin-top:28px;display:flex;align-items:center;gap:16px;background:linear-gradient(90deg,rgba(15,33,64,.95),rgba(15,33,64,.35));border:1px solid rgba(227,194,126,.35);border-radius:18px;padding:14px 18px;max-width:660px}
+  .client img{width:62px;height:62px;border-radius:14px;flex:none}
+  .client small{display:block;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--rccgold);font-weight:700}
+  .client b{font-size:17px;color:var(--cream)}
+  .client span{display:block;font-size:14px;color:#B9C3D6}
+  nav{position:sticky;top:0;background:rgba(11,11,10,.88);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line);z-index:5;overflow-x:auto;white-space:nowrap}
+  nav a{display:inline-block;padding:13px 11px;color:var(--muted);text-decoration:none;font-size:14px;font-weight:500}
+  nav a:hover{color:var(--gold2)}
+  section{padding:46px 0 6px}
+  h2{font-size:38px;line-height:1.1;margin:0 0 8px;display:flex;align-items:baseline;gap:14px;flex-wrap:wrap}
+  h2 .n{font-family:"DM Sans";font-size:13px;font-weight:700;color:var(--bg);background:var(--goldgrad);border-radius:999px;padding:3px 10px;transform:translateY(-6px);flex:none}
+  h3{font-size:17px;color:var(--text);margin:28px 0 10px;font-weight:600}
+  .lead{color:var(--muted);margin:0 0 20px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:18px 20px;margin:12px 0}
+  .callout{background:linear-gradient(180deg,rgba(211,174,95,.12),rgba(211,174,95,.04));border:1px solid rgba(211,174,95,.28);border-radius:18px;padding:18px 20px;margin:14px 0}
+  .callout.rcc{background:linear-gradient(180deg,rgba(15,33,64,.9),rgba(15,33,64,.45));border-color:rgba(227,194,126,.35)}
+  .callout.warn{background:linear-gradient(180deg,rgba(235,140,122,.14),rgba(235,140,122,.04));border-color:rgba(235,140,122,.35)}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:14px}
+  .two{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .muted{color:var(--muted)}
+  .small{font-size:13.5px}
+  ul{padding-left:20px;margin:8px 0}
+  li{margin:6px 0}
+  li::marker{color:var(--gold)}
+  table{width:100%;border-collapse:collapse;font-size:15px;background:var(--card);border:1px solid var(--line);border-radius:16px;overflow:hidden}
+  th,td{text-align:left;padding:12px 14px;border-bottom:1px solid var(--line);vertical-align:top}
+  th{background:#1c1a15;font-size:12px;text-transform:uppercase;letter-spacing:.12em;color:var(--gold)}
+  tr:last-child td{border-bottom:none}
+  td.r,th.r{text-align:right;white-space:nowrap}
+  td .d{margin-top:4px;font-size:13.5px;color:var(--muted)}
+  .scroll{overflow-x:auto}
+  .pill{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;border-radius:999px;padding:3px 10px;white-space:nowrap}
+  .pill.yes{color:#0B0B0A;background:var(--yes)}
+  .pill.part{color:#0B0B0A;background:var(--part)}
+  .pill.no{color:#0B0B0A;background:var(--no)}
+  ol.steps{counter-reset:s;list-style:none;padding:0}
+  ol.steps>li{counter-increment:s;position:relative;padding:16px 18px 16px 62px;background:var(--card);border:1px solid var(--line);border-radius:16px;margin:10px 0}
+  ol.steps>li:before{content:counter(s);position:absolute;left:18px;top:16px;width:28px;height:28px;border-radius:50%;background:var(--goldgrad);color:var(--bg);font-weight:700;display:flex;align-items:center;justify-content:center;font-size:13px}
+  ol.steps>li b.t{display:block;margin-bottom:2px}
+  .who{display:inline-block;font-size:11px;font-weight:700;color:var(--gold);text-transform:uppercase;letter-spacing:.12em;margin-bottom:4px}
+  .status{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;border-radius:999px;padding:2px 9px;margin-left:8px;vertical-align:middle}
+  .status.done{background:rgba(111,207,151,.15);color:var(--yes);border:1px solid rgba(111,207,151,.35)}
+  .status.block{background:rgba(235,140,122,.15);color:var(--no);border:1px solid rgba(235,140,122,.35)}
+  .status.next{background:rgba(211,174,95,.12);color:var(--gold);border:1px solid rgba(211,174,95,.35)}
+  .q{color:var(--text)}
+  .src li{font-size:13px;word-break:break-word}
+  sup a{color:var(--gold);text-decoration:none;font-weight:700;font-size:11px;margin-left:1px}
+  footer{padding:36px 0 60px;color:var(--muted);font-size:13px;border-top:1px solid var(--line);margin-top:40px}
+  footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:center}
+  footer img{height:18px;vertical-align:middle;margin-right:6px}
+  @media (max-width:640px){
+    h1{font-size:40px} h2{font-size:31px}
+    .two{grid-template-columns:1fr}
+    .int{display:none}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <div class="topbar">
+      <a class="brand" href="https://goldware.io"><img src="img/goldware.png" alt=""><em>GoldWare<span>.</span></em></a>
+      <span class="int">Internal · Jason &amp; Jake</span>
+    </div>
+    <div class="eyebrow">Proof of concept plan</div>
+    <h1>Can GoldWare do what Subsplash does <i>for a church?</i></h1>
+    <p>A sermon manager, an organized message archive with video and audio, on the church website and in a church app. We'd test it on our own church first, next to Subsplash, before offering it to anyone else. This is a separate idea from the Daily Manna proposal.</p>
+    <div class="client">
+      <img src="img/rcc-icon.png" alt="RCC">
+      <div><small>Test church</small><b>Regeneration Calvary Chapel</b><span>Sandpoint, Idaho · our existing RCC account on app.goldware.io</span></div>
+    </div>
+  </div>
+</header>
+
+<nav><div class="wrap">
+  <a href="#question">The question</a><a href="#today">RCC today</a><a href="#fit">Piece by piece</a><a href="#market">What churches pay</a><a href="#angle">The angle</a><a href="#test">The test</a><a href="#status">Status</a><a href="#decide">Decisions</a><a href="#sources">Sources</a>
+</div></nav>
+
+<main class="wrap">
+
+<section id="question">
+  <h2><span class="n">01</span>The <i>question</i></h2>
+  <div class="callout" style="font-size:17.5px">
+    <b>Short answer: mostly yes.</b> The GoldWare platform covers the website, the video and audio pages, the app, and online giving on the website. It has no ready-made "sermon" record and no podcast hosting, so we fill those two pieces ourselves. A few Subsplash features we wouldn't match at all: giving inside the app, a no-login app, and text-to-give.
+  </div>
+  <p>Before we show it to anyone else, we prove it on RCC. That's our own church, it already uses Subsplash, and our message videos and audio are already produced every week.</p>
+</section>
+
+<section id="today">
+  <h2><span class="n">02</span>What RCC uses Subsplash <i>for today</i></h2>
+  <p class="lead">Checked Nov 12, 2026.</p>
+  <div class="card">
+    <ul>
+      <li><b>Church app:</b> subsplash.com/regencc/app (both app stores).<sup><a href="#s1">1</a></sup></li>
+      <li><b>Giving:</b> subsplash.com/regencc/give.<sup><a href="#s2">2</a></sup></li>
+      <li><b>Calendar:</b> the regencc.com calendar is a Subsplash embed.</li>
+      <li><b>Messages:</b> our draft RCC website (in the RCC account) has a Messages page with two "Listen Now" cards, Sunday (1 Corinthians) and Wednesday. Both send people to the Subsplash app.<sup><a href="#s3">3</a></sup></li>
+      <li><b>Podcast:</b> we host a pilot Ruth audio feed ourselves. Its notes say the long-term home was going to be a Subsplash podcast.<sup><a href="#s4">4</a></sup></li>
+      <li><b>Video:</b> every message is already on YouTube, live and as an edited upload.<sup><a href="#s5">5</a></sup></li>
+    </ul>
+  </div>
+</section>
+
+<section id="fit">
+  <h2><span class="n">03</span>Piece by piece: can GoldWare <i>do it?</i></h2>
+  <div class="scroll"><table>
+    <tr><th>What Subsplash does</th><th>GoldWare</th></tr>
+    <tr><td><b>Sermon manager</b><div class="d">Staff add a message once (title, series, speaker, passage, video, audio, notes) and it shows everywhere. The platform has no built-in "sermon" type that shows on a website. Options: blog posts with series as categories, or a sermon list we keep. Picking one is part of the test.</div></td><td><span class="pill part">Partly</span></td></tr>
+    <tr><td><b>Organized archive on the website</b><div class="d">Series pages, a page per message, filters by series, speaker and book of the Bible, search. Built with the AI site builder.</div></td><td><span class="pill yes">Yes</span></td></tr>
+    <tr><td><b>Video</b><div class="d">YouTube embeds: free, no storage limits, already where RCC streams. Videos can also be uploaded directly into a series.</div></td><td><span class="pill yes">Yes</span></td></tr>
+    <tr><td><b>Audio listening</b><div class="d">An audio player on every message page.</div></td><td><span class="pill yes">Yes</span></td></tr>
+    <tr><td><b>Podcast (Apple, Spotify)</b><div class="d">The platform can't host a podcast feed. We host it ourselves, as the Ruth pilot already does, and new episodes can auto-post to social.</div></td><td><span class="pill part">We add it</span></td></tr>
+    <tr><td><b>Church app</b><div class="d">A branded app in both stores with push notifications, groups and video; series show up as courses. People sign in with an email link. Our cost is about $49 a month per church (re-check). The church publishes it under its own Apple and Google accounts.</div></td><td><span class="pill yes">Yes</span></td></tr>
+    <tr><td><b>Giving</b><div class="d">Online giving on the website through Stripe. Inside the app it sends people to a browser. Subsplash Giving: $0 a month, 2.3% + 30¢ per card gift.<sup><a href="#s6">6</a></sup></div></td><td><span class="pill part">Website only</span></td></tr>
+    <tr><td><b>Text-to-give, kids check-in, church management</b><div class="d">Not something we'd rebuild.</div></td><td><span class="pill no">No</span></td></tr>
+  </table></div>
+</section>
+
+<section id="market">
+  <h2><span class="n">04</span>What churches <i>pay elsewhere</i></h2>
+  <div class="scroll"><table>
+    <tr><th>Option</th><th class="r">Price</th></tr>
+    <tr><td><b>Subsplash</b><div class="d">No public price; custom quote. One 2026 review estimates app packages from about $99/mo plus a $499 setup (unconfirmed).</div></td><td class="r">~$99/mo + $499<sup><a href="#s7">7</a></sup></td></tr>
+    <tr><td><b>Nucleus</b><div class="d">Standard (with sermons) / Complete (adds giving and media)</div></td><td class="r">$99 / $199 mo<sup><a href="#s8">8</a></sup></td></tr>
+    <tr><td><b>The Church Co</b><div class="d">Basic / Premium, billed yearly</div></td><td class="r">$29 / $49 mo<sup><a href="#s9">9</a></sup></td></tr>
+  </table></div>
+  <p class="small muted">All of these are software the church still runs itself: someone on staff uploads every message.</p>
+</section>
+
+<section id="angle">
+  <h2><span class="n">05</span>The <i>angle</i></h2>
+  <div class="callout">
+    <b>Don't sell it as "Subsplash for less."</b> Subsplash and Nucleus are polished products, and a cheaper copy means we maintain the media piece forever. Sell it as <b>done for you</b>: one GoldWare system for website, message archive, podcast, app and social, and <b>we post each week's message for them</b>. Our Sermon Shorts pipeline already produces the video and audio, so the weekly upload is work we're half doing anyway.
+  </div>
+</section>
+
+<section id="test">
+  <h2><span class="n">06</span>The test on <i>RCC</i></h2>
+  <div class="callout rcc"><b>Rule:</b> nothing live changes. regencc.com, the RCC app and Subsplash stay exactly as they are until you two decide. The test is built as its own project in the RCC account and reviewed on a private preview link.</div>
+  <ol class="steps">
+    <li><b class="t">Message library: the Book of Ruth first</b>All 4 Wednesday messages already have edited videos and audio (table below). Then one Sunday series (2 Corinthians) to show a long series.</li>
+    <li><b class="t">Archive pages</b>A series page and a page per message: video, audio player, passage, date, description. Browse by series, speaker, book.</li>
+    <li><b class="t">Podcast</b>The Ruth feed we already host, linked from each message ("Listen on Apple / Spotify").</li>
+    <li><b class="t">Sermon manager</b>Test the two options (blog posts vs. a sermon list) for how long a weekly upload takes, and pick one.</li>
+    <li><b class="t">App (optional, last)</b>The branded app with series as courses, on test phones only, never published.</li>
+    <li><b class="t">Side-by-side review</b>One page for Jason and Jake: what matched Subsplash, what didn't, minutes per weekly upload, monthly cost.</li>
+  </ol>
+
+  <h3>Ruth series: ready to load</h3>
+  <div class="scroll"><table>
+    <tr><th>Message</th><th class="r">Length</th></tr>
+    <tr><td><b>God Is Still Working</b><div class="d">Ruth 1:1-22 · Sep 30, 2026 · <a href="https://youtu.be/qzhVNK-f5ek">video</a> · <a href="https://goldwareos.github.io/rcc-audio/ruth/audio/Ruth1_God_Is_Still_Working.mp3">audio</a></div></td><td class="r">1:02:43</td></tr>
+    <tr><td><b>God Is at Work When We Cannot See Him</b><div class="d">Ruth 2:1-23 · Oct 21, 2026 · <a href="https://youtu.be/g7ZPiJ5OIgc">video</a> · <a href="https://goldwareos.github.io/rcc-audio/ruth/audio/Ruth2_God_Is_at_Work_When_We_Cannot_See_Him.mp3">audio</a></div></td><td class="r">1:10:23</td></tr>
+    <tr><td><b>The Courage to Be Still</b><div class="d">Ruth 3:1-18 · Oct 28, 2026 · <a href="https://youtu.be/XcCHBZNHgXo">video</a> · <a href="https://goldwareos.github.io/rcc-audio/ruth/audio/Ruth3_The_Courage_to_Be_Still.mp3">audio</a></div></td><td class="r">1:02:06</td></tr>
+    <tr><td><b>God Writes the Final Chapter</b><div class="d">Ruth 4:1-22 · Nov 11, 2026 · <a href="https://youtu.be/wzZDiOa_8_s">video</a> · <a href="https://goldwareos.github.io/rcc-audio/ruth/audio/Ruth4_God_Writes_the_Final_Chapter.mp3">audio</a></div></td><td class="r">1:08:08</td></tr>
+  </table></div>
+</section>
+
+<section id="status">
+  <h2><span class="n">07</span><i>Status</i></h2>
+  <div class="card">
+    <ul>
+      <li><b>Looked through the RCC account</b> <span class="status done">Done</span><br><span class="muted small">It already has a draft RCC website project. Read only; nothing changed.</span></li>
+      <li><b>Ruth content gathered</b> <span class="status done">Done</span><br><span class="muted small">4 videos (all public) and 4 audio files with titles, passages and descriptions.</span></li>
+      <li><b>Sign in to build</b> <span class="status block">Waiting</span><br><span class="muted small">Building needs a login, and the security code goes to jason@goldware.io, which is down. Next try: have the code texted to Jason's phone.</span></li>
+      <li><b>Build the Ruth archive pages</b> <span class="status next">Next</span></li>
+    </ul>
+  </div>
+</section>
+
+<section id="decide">
+  <h2><span class="n">08</span>Decisions for <i>Jason &amp; Jake</i></h2>
+  <div class="card">
+    <ol>
+      <li class="q">Build the test as its own project (recommended, keeps the RCC website draft safe), or straight into the RCC website draft?</li>
+      <li class="q">Include the app in the test, or prove the website and podcast first?</li>
+      <li class="q">If it works, does RCC move off Subsplash, or does it stay a demo for selling to other churches?</li>
+      <li class="q">Is this a new GoldWare offer ("Sermon Hub")? If so, price it after the test, once we know the weekly minutes.</li>
+    </ol>
+  </div>
+</section>
+
+<section id="sources">
+  <h2><span class="n">09</span><i>Sources</i></h2>
+  <ol class="src">
+    <li id="s1"><a href="https://subsplash.com/regencc/app">RCC app on Subsplash</a></li>
+    <li id="s2"><a href="https://subsplash.com/regencc/give">RCC giving on Subsplash</a></li>
+    <li id="s3"><a href="https://preview-1792249003042041289.vibepreview.app/messages">Draft RCC website, Messages page (preview)</a></li>
+    <li id="s4"><a href="https://github.com/goldwareos/rcc-audio">RCC Ruth audio feed pilot</a> · <a href="https://goldwareos.github.io/rcc-audio/ruth/feed.xml">feed</a></li>
+    <li id="s5"><a href="https://www.youtube.com/@regenerationcalvarychapel3707/streams">RCC on YouTube</a></li>
+    <li id="s6"><a href="https://www.subsplash.com/pricing">Subsplash pricing and giving rates</a></li>
+    <li id="s7"><a href="https://churchmemberpro.com/blog/subsplash-review/">Subsplash review 2026 (app price estimate)</a></li>
+    <li id="s8"><a href="https://nucleus.church/pricing">Nucleus pricing</a></li>
+    <li id="s9"><a href="https://steepleandsignal.com/insights/best-church-website-builders">Church website builders compared (The Church Co prices)</a></li>
+  </ol>
+</section>
+
+</main>
+<footer><div class="wrap"><span><img src="img/goldware.png" alt="">GoldWare · internal working plan · Nov 2026</span><span>Test church: Regeneration Calvary Chapel</span></div></footer>
+</body>
+</html>
