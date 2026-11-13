@@ -4,261 +4,307 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
-<title>Daily Manna: Website, Community and Social Plan (GoldWare internal)</title>
+<title>Daily Manna: Website, Community and Social Plan · GoldWare (internal)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
 <style>
-  :root{--gold:#c9a227;--gold-soft:#f6efd9;--ink:#1d1d1f;--muted:#5f6368;--line:#e6e2d6;--bg:#fbfaf6;--card:#fff;--green:#2e7d4f}
+  :root{
+    --bg:#0B0B0A;--card:#161511;--line:rgba(255,255,255,.08);
+    --text:#F2EEE4;--soft:#CFCCC1;--muted:#A7A498;
+    --gold:#D3AE5F;--gold2:#F3D68C;--goldgrad:linear-gradient(135deg,#C99F4E 0%,#E7C67C 55%,#F3D68C 100%);
+    --dm:#F9A93A;--dm-soft:rgba(249,169,58,.12);
+  }
   *{box-sizing:border-box}
-  body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:var(--ink);background:var(--bg);line-height:1.55;font-size:16px}
-  header{background:linear-gradient(135deg,#1d1d1f 0%,#3a3326 100%);color:#fff;padding:42px 20px 34px}
-  .wrap{max-width:900px;margin:0 auto;padding:0 20px}
-  header .wrap{padding:0}
-  .tag{display:inline-block;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:10px}
-  h1{font-size:30px;line-height:1.2;margin:0 0 10px}
-  header p{margin:0;color:#ddd6c4;max-width:700px}
-  nav{position:sticky;top:0;background:#fff;border-bottom:1px solid var(--line);z-index:5;overflow-x:auto;white-space:nowrap}
-  nav a{display:inline-block;padding:12px 12px;color:var(--muted);text-decoration:none;font-size:14px;font-weight:600}
-  nav a:hover{color:var(--ink)}
-  section{padding:34px 0 8px}
-  h2{font-size:23px;margin:0 0 6px;display:flex;align-items:center;gap:10px}
-  h2 .n{display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:50%;background:var(--gold);color:#fff;font-size:15px;flex:none}
-  h3{font-size:17px;margin:22px 0 8px}
-  .lead{color:var(--muted);margin:0 0 18px}
-  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 20px;margin:12px 0}
-  .callout{background:var(--gold-soft);border:1px solid #e9dcae;border-radius:14px;padding:16px 20px;margin:14px 0}
+  html{scroll-behavior:smooth}
+  body{margin:0;font-family:"DM Sans",ui-sans-serif,system-ui,sans-serif;color:var(--soft);background:var(--bg);line-height:1.6;font-size:16px;-webkit-font-smoothing:antialiased}
+  body:before{content:"";position:fixed;inset:0;pointer-events:none;background:radial-gradient(120% 60% at 50% 0%,rgba(211,174,95,.10),transparent 60%);z-index:0}
+  main,header,nav,footer{position:relative;z-index:1}
+  a{color:var(--gold2)}
+  .wrap{max-width:920px;margin:0 auto;padding:0 22px}
+  h1,h2{font-family:"Instrument Serif",Georgia,serif;font-weight:400;color:var(--text);letter-spacing:-.01em}
+  h1 i,h2 i{color:var(--gold);font-style:italic}
+  b,strong{color:var(--text);font-weight:600}
+
+  .topbar{display:flex;align-items:center;justify-content:space-between;padding:22px 0}
+  .brand{display:flex;align-items:center;gap:10px;color:var(--text);font-weight:600;font-size:20px;text-decoration:none}
+  .brand img{height:24px}
+  .brand span{color:var(--gold)}
+  .int{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:6px 12px}
+  header{padding-bottom:30px}
+  .eyebrow{display:flex;align-items:center;gap:10px;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);font-weight:600;margin:40px 0 14px}
+  .eyebrow:before{content:"";width:7px;height:7px;background:var(--gold);transform:rotate(45deg)}
+  h1{font-size:54px;line-height:1.04;margin:0 0 18px}
+  header p{max-width:680px;color:var(--soft);font-size:17px;margin:0}
+  .client{margin-top:28px;display:flex;align-items:center;gap:16px;background:linear-gradient(90deg,var(--dm-soft),rgba(249,169,58,0) 85%);border:1px solid rgba(249,169,58,.28);border-radius:18px;padding:14px 18px;max-width:640px}
+  .client img{width:62px;height:62px;border-radius:50%;background:#fff;flex:none}
+  .client small{display:block;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--dm);font-weight:700}
+  .client b{font-size:17px}
+  .client span{display:block;font-size:14px;color:var(--muted)}
+
+  nav{position:sticky;top:0;background:rgba(11,11,10,.88);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line);z-index:5;overflow-x:auto;white-space:nowrap}
+  nav a{display:inline-block;padding:13px 11px;color:var(--muted);text-decoration:none;font-size:14px;font-weight:500}
+  nav a:hover{color:var(--gold2)}
+
+  section{padding:46px 0 6px}
+  h2{font-size:38px;line-height:1.1;margin:0 0 8px;display:flex;align-items:baseline;gap:14px;flex-wrap:wrap}
+  h2 .n{font-family:"DM Sans";font-size:13px;font-weight:700;color:var(--bg);background:var(--goldgrad);border-radius:999px;padding:3px 10px;transform:translateY(-6px);flex:none}
+  h3{font-size:17px;color:var(--text);margin:28px 0 10px;font-weight:600}
+  .lead{color:var(--muted);margin:0 0 20px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:18px 20px;margin:12px 0}
+  .callout{background:linear-gradient(180deg,rgba(211,174,95,.12),rgba(211,174,95,.04));border:1px solid rgba(211,174,95,.28);border-radius:18px;padding:18px 20px;margin:14px 0}
+  .callout.dm{background:linear-gradient(180deg,rgba(249,169,58,.13),rgba(249,169,58,.04));border-color:rgba(249,169,58,.3)}
   .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:14px}
-  .tier{background:#fff;border:1px solid var(--line);border-radius:16px;padding:20px;display:flex;flex-direction:column}
-  .tier.rec{border:2px solid var(--gold);box-shadow:0 6px 24px rgba(201,162,39,.15)}
-  .tier .badge{align-self:flex-start;background:var(--gold);color:#fff;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:3px 9px;border-radius:20px;margin-bottom:8px}
-  .tier h4{margin:0;font-size:18px}
-  .price{font-size:34px;font-weight:800;margin:6px 0 0}
-  .price small{font-size:15px;font-weight:600;color:var(--muted)}
-  .sub{color:var(--muted);font-size:14px;margin:2px 0 12px}
+  .two{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .muted{color:var(--muted)}
+  .small{font-size:13.5px}
   ul{padding-left:20px;margin:8px 0}
-  li{margin:5px 0}
+  li{margin:6px 0}
+  li::marker{color:var(--gold)}
+
+  .tier{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:22px;display:flex;flex-direction:column}
+  .tier.rec{border:1px solid rgba(211,174,95,.6);box-shadow:0 0 0 1px rgba(211,174,95,.25),0 18px 50px rgba(211,174,95,.12);background:linear-gradient(180deg,#1d1a12,#151410)}
+  .tier .badge{align-self:flex-start;background:var(--goldgrad);color:var(--bg);font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:4px 10px;border-radius:999px;margin-bottom:10px}
+  .tier h4{margin:0;font-size:18px;color:var(--text);font-weight:600}
+  .price{font-family:"Instrument Serif";font-size:52px;line-height:1;color:var(--text);margin:10px 0 2px}
+  .price small{font-family:"DM Sans";font-size:15px;color:var(--muted)}
+  .sub{color:var(--muted);font-size:14px;margin:4px 0 14px}
   .tier ul{padding-left:0;list-style:none;margin:0}
   .tier li{padding-left:24px;position:relative;font-size:15px}
-  .tier li:before{content:"✓";position:absolute;left:0;color:var(--green);font-weight:800}
+  .tier li:before{content:"";position:absolute;left:2px;top:9px;width:7px;height:7px;background:var(--gold);transform:rotate(45deg)}
   .tier .yr{margin-top:auto;padding-top:14px;border-top:1px dashed var(--line);font-size:14px;color:var(--muted)}
-  table{width:100%;border-collapse:collapse;font-size:15px;background:#fff;border:1px solid var(--line);border-radius:12px;overflow:hidden}
-  th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top}
-  th{background:#f4f1e8;font-size:13px;text-transform:uppercase;letter-spacing:.05em;color:#55503f}
+
+  table{width:100%;border-collapse:collapse;font-size:15px;background:var(--card);border:1px solid var(--line);border-radius:16px;overflow:hidden}
+  th,td{text-align:left;padding:12px 14px;border-bottom:1px solid var(--line);vertical-align:top}
+  th{background:#1c1a15;font-size:12px;text-transform:uppercase;letter-spacing:.12em;color:var(--gold)}
   tr:last-child td{border-bottom:none}
   td.r,th.r{text-align:right;white-space:nowrap}
+  td .d{margin-top:4px;font-size:13.5px;color:var(--muted)}
   .scroll{overflow-x:auto}
+
   ol.steps{counter-reset:s;list-style:none;padding:0}
-  ol.steps>li{counter-increment:s;position:relative;padding:14px 16px 14px 56px;background:#fff;border:1px solid var(--line);border-radius:12px;margin:10px 0}
-  ol.steps>li:before{content:counter(s);position:absolute;left:16px;top:14px;width:28px;height:28px;border-radius:8px;background:#1d1d1f;color:var(--gold);font-weight:800;display:flex;align-items:center;justify-content:center;font-size:14px}
-  ol.steps>li b.t{display:block;margin-bottom:3px}
-  .who{font-size:12px;font-weight:700;color:var(--gold);text-transform:uppercase;letter-spacing:.06em}
-  .two{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-  @media (max-width:640px){.two{grid-template-columns:1fr}h1{font-size:25px}.price{font-size:30px}}
-  .muted{color:var(--muted)}
-  .small{font-size:13px}
-  sup a{color:var(--gold);text-decoration:none;font-weight:700}
+  ol.steps>li{counter-increment:s;position:relative;padding:16px 18px 16px 62px;background:var(--card);border:1px solid var(--line);border-radius:16px;margin:10px 0}
+  ol.steps>li:before{content:counter(s);position:absolute;left:18px;top:16px;width:28px;height:28px;border-radius:50%;background:var(--goldgrad);color:var(--bg);font-weight:700;display:flex;align-items:center;justify-content:center;font-size:13px}
+  ol.steps>li b.t{display:block;margin-bottom:2px}
+  .who{display:inline-block;font-size:11px;font-weight:700;color:var(--gold);text-transform:uppercase;letter-spacing:.12em;margin-bottom:4px}
+  .script{font-family:ui-monospace,Menlo,monospace;font-size:13.5px;white-space:pre-wrap}
+  .q{color:var(--text)}
   .src li{font-size:13px;word-break:break-word}
-  .src a{color:#6b5a1a}
-  footer{padding:30px 0 50px;color:var(--muted);font-size:13px}
-  .q{font-weight:700}
+  sup a{color:var(--gold);text-decoration:none;font-weight:700;font-size:11px;margin-left:1px}
+  footer{padding:36px 0 60px;color:var(--muted);font-size:13px;border-top:1px solid var(--line);margin-top:40px}
+  footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:center}
+  footer img{height:18px;vertical-align:middle;margin-right:6px}
+  @media (max-width:640px){
+    h1{font-size:40px} h2{font-size:31px}
+    .two{grid-template-columns:1fr}
+    .int{display:none}
+    .price{font-size:46px}
+  }
 </style>
 </head>
 <body>
 
 <header>
   <div class="wrap">
-    <span class="tag">GoldWare · Internal · For Jason &amp; Jake</span>
-    <h1>Calvary Chapel Daily Manna: Website, Community and Social Plan</h1>
-    <p>Pastor Bob Boone's daily Bible study (ccdailymanna.org). The client wants a website redesign, one place where all their followers can talk with them without texting everyone, and someone to handle social media. Below: what they have now, how it helps them, what to charge, and how we build it.</p>
+    <div class="topbar">
+      <a class="brand" href="https://goldware.io"><img src="img/goldware.png" alt="">GoldWare<span>.</span></a>
+      <span class="int">Internal · Jason &amp; Jake</span>
+    </div>
+    <div class="eyebrow">Proposal working plan</div>
+    <h1>Website, community and social, <i>built around Daily Manna.</i></h1>
+    <p>The client wants a website redesign, one place to reach all their followers without texting everyone, and someone to handle social media. Below: where they are, how it helps them, how to sell it, what to charge, and how we build it.</p>
+    <div class="client">
+      <img src="img/daily-manna.png" alt="The Daily Manna logo">
+      <div><small>Proposing to</small><b>Calvary Chapel Daily Manna Ministries</b><span>Pastor Bob &amp; Cheryl Boone · ccdailymanna.org</span></div>
+    </div>
   </div>
 </header>
 
 <nav><div class="wrap">
-  <a href="#today">Today</a><a href="#offer">The offer</a><a href="#benefits">Why it helps them</a><a href="#sell">How to sell it</a><a href="#pricing">Pricing</a><a href="#compare">Vs. other options</a><a href="#howto">How we build it</a><a href="#decide">Decisions</a><a href="#sources">Sources</a>
+  <a href="#today">Today</a><a href="#offer">The offer</a><a href="#benefits">Why it helps</a><a href="#sell">How to sell it</a><a href="#pricing">Pricing</a><a href="#compare">Vs. others</a><a href="#howto">How we build it</a><a href="#decide">Decisions</a><a href="#sources">Sources</a>
 </div></nav>
 
 <main class="wrap">
 
 <section id="today">
-  <h2><span class="n">1</span>Where they are today</h2>
+  <h2><span class="n">01</span>Where they are <i>today</i></h2>
   <p class="lead">Checked on their live site and channels, Nov 12, 2026.</p>
   <div class="card">
     <ul>
-      <li><b>The ministry:</b> a daily "One Year Bible" study taught by Pastor Bob Boone, a retired Calvary Chapel pastor from Bonners Ferry, Idaho. It airs live Monday to Friday at 8:30 AM Pacific, and Ladies' Daily Manna with Cheryl airs the 1st and 3rd Saturdays. They're now in season 7. They're a stand-alone 501(c)(3) para-church ministry as of January 2025.<sup><a href="#s1">1</a></sup><sup><a href="#s2">2</a></sup></li>
-      <li><b>Website:</b> a 6-page Wix site (Home, About, Live Stream, Daily Schedule, Donate, Contact). "Live Stream" sends people off-site to sermon.net, "Daily Schedule" is a PDF, and "Contact" is just a link to another link.<sup><a href="#s1">1</a></sup></li>
+      <li><b>The ministry:</b> a daily "One Year Bible" study taught by Pastor Bob Boone, a retired Calvary Chapel pastor from Bonners Ferry, Idaho. It airs live Monday to Friday at 8:30 AM Pacific, and Ladies' Daily Manna with Cheryl airs the 1st and 3rd Saturdays. They're in season 7, and have been a stand-alone 501(c)(3) para-church ministry since January 2025.<sup><a href="#s1">1</a></sup><sup><a href="#s2">2</a></sup></li>
+      <li><b>Website:</b> a 6-page Wix site (Home, About, Live Stream, Daily Schedule, Donate, Contact). "Live Stream" sends people off-site to sermon.net, "Daily Schedule" is a PDF, and "Contact" is a link to another link.<sup><a href="#s1">1</a></sup></li>
       <li><b>Giving:</b> a Wix donation form (one-time or monthly). 10% of gifts go to missionaries (Calvary Chapel Omsk, Russia, and Truth In Love Ministries).<sup><a href="#s1">1</a></sup></li>
       <li><b>Audience:</b> YouTube @CalvaryDailyManna has <b>350 subscribers and 493 videos</b>, sorted into monthly playlists. They also stream on Facebook and sermon.net.<sup><a href="#s3">3</a></sup><sup><a href="#s4">4</a></sup></li>
-      <li><b>The gap:</b> the followers live on YouTube, Facebook and sermon.net, and the ministry owns no list of them. Followers can't easily talk with Bob, Cheryl or each other in one place, and reaching everyone today means texting or posting on three platforms.</li>
+      <li><b>The gap:</b> the followers live on YouTube, Facebook and sermon.net, and the ministry owns no list of them. Followers can't easily talk with Bob, Cheryl or each other in one place, and reaching everyone means texting or posting on three platforms.</li>
     </ul>
   </div>
-  <div class="callout"><b>A note on the word "podcast":</b> they don't have an audio podcast feed today. It's a daily livestream. An Apple/Spotify audio feed is an easy add-on later (we're piloting the same thing for RCC).</div>
+  <div class="callout dm"><b>On the word "podcast":</b> they don't have an audio podcast feed today; it's a daily livestream. An Apple/Spotify audio feed is an easy add-on later (we're piloting the same thing for RCC).</div>
 </section>
 
 <section id="offer">
-  <h2><span class="n">2</span>The offer in one line</h2>
-  <div class="callout" style="font-size:18px">
-    <b>One home for Daily Manna:</b> a new website, a private Daily Manna community where every follower gets one message instead of a text, online giving, and their YouTube and Facebook handled for them. It's all built in HighLevel and run by GoldWare.
+  <h2><span class="n">02</span>The offer <i>in one line</i></h2>
+  <div class="callout" style="font-size:17.5px">
+    <b>One home for Daily Manna:</b> a new website, a private Daily Manna community where every follower gets one message instead of a text, online giving, and their YouTube and Facebook handled for them. All on the GoldWare platform, built and run by GoldWare.
   </div>
   <div class="grid">
-    <div class="card"><b>1. Website redesign</b><br><span class="muted">Built on HighLevel. Watch live on the site, find any day's study, the reading plan as a real page, giving, and a join button.</span></div>
-    <div class="card"><b>2. Daily Manna Community</b><br><span class="muted">HighLevel Communities: a private group with channels, an announcement channel, live video, and the reading plan as a "course". No limit on members.<sup><a href="#s5">5</a></sup><sup><a href="#s6">6</a></sup><sup><a href="#s7">7</a></sup></span></div>
-    <div class="card"><b>3. Social media</b><br><span class="muted">Either they post themselves with HighLevel's Social Planner (included), or we run it for them with our Care plan: posting, comment replies with Bob's approval, and a monthly report.</span></div>
+    <div class="card"><b>1. Website redesign</b><br><span class="muted">Watch live on the site, find any day's study, the reading plan as a real page, giving, and a join button.</span></div>
+    <div class="card"><b>2. Daily Manna Family</b><br><span class="muted">A private community: channels, an announcement channel, live video, and the reading plan as a "course". No limit on members.</span></div>
+    <div class="card"><b>3. Social media</b><br><span class="muted">They post themselves from GoldWare's one-screen scheduler (included), or we run it with our Care plan: posting, comment replies with Bob's approval, and a monthly report.</span></div>
   </div>
 </section>
 
 <section id="benefits">
-  <h2><span class="n">3</span>How this helps Daily Manna</h2>
+  <h2><span class="n">03</span>How this helps <i>Daily Manna</i></h2>
   <p class="lead">Use these points when pitching it to Pastor Bob and Cheryl.</p>
   <div class="two">
-    <div class="card"><b>Reach everyone with one post, no texting</b><br>One post in the announcement channel, like "We're live in 5 minutes" or "No study Friday", reaches every member by in-app and email notification. The @everyone tag pings the whole group.<sup><a href="#s6">6</a></sup><sup><a href="#s8">8</a></sup> There are no texting costs and no group-text "reply all" mess.</div>
-    <div class="card"><b>The followers become theirs</b><br>Today YouTube and Facebook decide who sees a stream. Every community member and every donor becomes a contact the ministry owns, with an email address, so they can reach their people even if a platform changes.</div>
-    <div class="card"><b>A place to talk about today's reading</b><br>Set up a "Today's Reading" channel for questions and comments on each day's passage, plus a Prayer Requests channel. Bob answers once and everyone sees it, and followers encourage each other. This fits what their own About page says: they exist to keep people "plugged into a daily devotional life" across long distances.<sup><a href="#s2">2</a></sup></div>
-    <div class="card"><b>Ladies' Daily Manna gets its own room</b><br>A private group or channel for Cheryl's Saturday ladies, where only Cheryl can make announcements.</div>
-    <div class="card"><b>The One Year Bible as a "course"</b><br>HighLevel puts courses inside communities.<sup><a href="#s7">7</a></sup> Each day's video and reading becomes a lesson, so someone who joins in March can start on Day 1 and keep track of their progress. That turns 493 videos into a guided path instead of a pile.</div>
-    <div class="card"><b>Live from inside the community</b><br>Go Live runs live video, audio and chat inside the community<sup><a href="#s9">9</a></sup>. It works for a Q&amp;A after the study or a members-only Ladies' session. They can keep streaming the daily study to YouTube and Facebook as they do now.</div>
-    <div class="card"><b>Easier giving that's tracked</b><br>Give on the site with one-time or monthly gifts through Stripe, and every donor saved in the CRM. A thank-you email goes out automatically, and they can follow up with donors, which a Wix form doesn't do for them.</div>
-    <div class="card"><b>Social handled, and Bob keeps teaching</b><br>Bob is a retired pastor. He should teach, not manage three platforms. With Care, we post, file each day's video into its month playlist, and draft comment replies. Bob approves the replies on one page.</div>
+    <div class="card"><b>Reach everyone with one post, no texting</b><br>One post in the announcement channel, like "We're live in 5 minutes" or "No study Friday", reaches every member by email and in-app notification. The @everyone tag pings the whole group. No texting costs and no "reply all" mess.</div>
+    <div class="card"><b>The followers become theirs</b><br>Today YouTube and Facebook decide who sees a stream. Every member and donor becomes a contact the ministry owns, so they can reach their people even if a platform changes.</div>
+    <div class="card"><b>A place to talk about today's reading</b><br>A "Today's Reading" channel for questions on each day's passage, plus Prayer Requests. Bob answers once and everyone sees it. It fits their own About page: keeping people "plugged into a daily devotional life" across long distances.<sup><a href="#s2">2</a></sup></div>
+    <div class="card"><b>Ladies' Daily Manna gets its own room</b><br>A private channel for Cheryl's Saturday ladies, where only Cheryl makes announcements.</div>
+    <div class="card"><b>The One Year Bible as a "course"</b><br>Each day's video and reading becomes a lesson, so someone who joins in March can start on Day 1 and keep their place. 493 videos become a guided path instead of a pile.</div>
+    <div class="card"><b>Live from inside the community</b><br>Live video, audio and chat inside the group, for a Q&amp;A after the study or a members-only Ladies' session. The daily study keeps streaming to YouTube and Facebook as now.</div>
+    <div class="card"><b>Easier giving that's tracked</b><br>One-time or monthly gifts on the site through Stripe, every donor saved, and an automatic thank-you email. A Wix form doesn't do that for them.</div>
+    <div class="card"><b>Social handled, and Bob keeps teaching</b><br>Bob should teach, not manage three platforms. With Care, we post, file each day's video into its month playlist, and draft comment replies Bob approves on one page.</div>
   </div>
 </section>
 
 <section id="sell">
-  <h2><span class="n">4</span>How to sell it</h2>
-  <p class="lead">One 30–45 minute conversation with Bob and Cheryl, ideally in person or on a video call with a phone in hand. Go in this order: <b>website → group messaging → social media</b>. Each step leads into the next one. Jason leads (pastor to pastor), and Jake runs the demos.</p>
+  <h2><span class="n">04</span>How to <i>sell it</i></h2>
+  <p class="lead">One 30–45 minute conversation with Bob and Cheryl, ideally in person or on a video call with a phone in hand. Order: <b>website → group messaging → social media</b>, each leading into the next. Jason leads (pastor to pastor); Jake runs the demos.</p>
 
   <div class="callout">
     <b>Before the call (about 1 hour, Jake):</b>
     <ul>
-      <li>Open their current site on a phone, ready to show.</li>
-      <li>A rough homepage mockup in their colors with their real text. One screen is enough.</li>
-      <li>A <b>demo community</b> in our own HighLevel account called "Daily Manna Family (demo)", with the Announcements, Today's Reading, Prayer Requests and Ladies' Daily Manna channels. Add Jason's phone and email as a member so an @everyone post visibly arrives during the call.</li>
-      <li>Social Planner open on one screen, with a week of sample posts scheduled.</li>
+      <li>Their current site open on a phone, ready to show.</li>
+      <li>The slide deck (Dropbox › Goldware › Daily Manna).</li>
+      <li>A <b>demo community</b> in our own GoldWare account, "Daily Manna Family (demo)", with Announcements, Today's Reading, Prayer Requests and Ladies' Daily Manna. Add Jason's phone and email as a member so an @everyone post visibly arrives during the call.</li>
+      <li>The social scheduler open with a week of sample posts.</li>
     </ul>
   </div>
 
   <h3>Open with their mission, not our product (2 min)</h3>
   <div class="card">
     <p style="margin-top:0"><b>Say:</b> "Your goal is to keep people in God's Word every day, across a lot of miles. Everything we'd suggest is about helping more people do that with less work for you two."</p>
-    <p style="margin-bottom:0"><b>Ask:</b> "What's the hardest part of running Daily Manna right now?" Then let them talk. Whatever they say is what you tie the rest back to.</p>
+    <p style="margin-bottom:0"><b>Ask:</b> "What's the hardest part of running Daily Manna right now?" Let them talk, and tie the rest back to it.</p>
   </div>
 
-  <h3>Step 1: The website, the front door (10 min)</h3>
+  <h3>Step 1 · The website, the front door (10 min)</h3>
   <div class="card">
     <p style="margin-top:0"><b>Ask:</b> "When someone hears about Daily Manna, where do you send them? What happens when they get there?"</p>
-    <p><b>Show them on the phone (don't just tell them):</b></p>
+    <p><b>Show them on the phone:</b></p>
     <ul>
-      <li>Tapping "Live Stream" takes people off the site to sermon.net.</li>
-      <li>The daily reading schedule is a PDF, which is hard to read on a phone.</li>
+      <li>"Live Stream" takes people off the site to sermon.net.</li>
+      <li>The reading schedule is a PDF, hard to read on a phone.</li>
       <li>Contact is a link to another link.</li>
-      <li>There's no way to join, sign up, or stay connected. People watch and then leave.</li>
+      <li>No way to join or stay connected. People watch, then leave.</li>
     </ul>
-    <p><b>Say:</b> "A ministry website should do three things: let people <b>watch today's study</b>, <b>find any day</b>, and <b>join and give</b>. Right now it mostly tells people where else to go."</p>
-    <p><b>Show:</b> the mockup. Walk through Watch (live plus every month's playlist), Reading Plan (today's reading right on the page), Give, and the big <b>Join the Daily Manna Family</b> button.</p>
+    <p><b>Say:</b> "A ministry website should let people <b>watch today's study</b>, <b>find any day</b>, and <b>join and give</b>. Right now it mostly tells people where else to go."</p>
+    <p><b>Show:</b> the mockup: Watch, Reading Plan, Give, and the big <b>Join the Daily Manna Family</b> button.</p>
     <p><b>Price:</b> "The redesign is normally $2,000. For the ministry it's $1,500."</p>
-    <p style="margin-bottom:0"><b>Bridge to step 2:</b> "That Join button is the important part. Once someone joins, how do you stay in touch with them?"</p>
+    <p style="margin-bottom:0"><b>Bridge:</b> "That Join button is the important part. Once someone joins, how do you stay in touch with them?"</p>
   </div>
 
-  <h3>Step 2: Group messaging, what they asked for (15 min, the main event)</h3>
+  <h3>Step 2 · Group messaging, what they asked for (15 min)</h3>
   <div class="card">
-    <p style="margin-top:0"><b>Ask:</b> "How do you reach everyone today, say when the stream is moving or you're sick? How many people are you texting? Can they talk to each other?"</p>
+    <p style="margin-top:0"><b>Ask:</b> "How do you reach everyone today, say when the stream moves or you're sick? Can they talk to each other?"</p>
     <p><b>Say:</b> "Imagine one private place that's just Daily Manna. You post once and everyone gets it. Nobody has to text anyone."</p>
     <p><b>Demo (this sells it):</b></p>
     <ul>
-      <li>Post in Announcements: "@everyone We're live in 5 minutes!" Jason's phone gets the email or notification right there in the call.</li>
-      <li>Show <b>Today's Reading</b>, where people comment on the day's passage. Bob answers once and everyone sees it.</li>
-      <li>Show <b>Prayer Requests</b>, and <b>Ladies' Daily Manna</b> as Cheryl's own room.</li>
-      <li>Show the <b>One Year Bible course</b>: someone who joins in March can start on Day 1 and keep their place.</li>
-      <li>Mention <b>Go Live</b>, for a members-only Q&amp;A after the study.</li>
+      <li>Post "@everyone We're live in 5 minutes!" and let them see Jason's phone light up.</li>
+      <li><b>Today's Reading</b>: Bob answers once and everyone sees it.</li>
+      <li><b>Prayer Requests</b>, and <b>Ladies' Daily Manna</b> as Cheryl's own room.</li>
+      <li>The <b>One Year Bible course</b>: join in March, start on Day 1.</li>
+      <li><b>Go Live</b> for a members-only Q&amp;A after the study.</li>
     </ul>
-    <p><b>The line to land:</b> "Right now your followers belong to YouTube and Facebook. This way they belong to Daily Manna. You have every name and email, and no algorithm decides who sees your post."</p>
-    <p style="margin-bottom:0"><b>Price:</b> "Setup is $500. That includes building it, the join page, a welcome email, and a launch script Bob reads on the stream. After that it's part of the $97 a month, which also covers the website and giving. There's no per-member cost."</p>
+    <p><b>Line to land:</b> "Right now your followers belong to YouTube and Facebook. This way they belong to Daily Manna."</p>
+    <p style="margin-bottom:0"><b>Price:</b> "Setup is $500: building it, the join page, a welcome email, and a launch script Bob reads on the stream. After that it's part of the $97 a month, which also covers the website and giving. No per-member cost."</p>
   </div>
   <div class="two">
-    <div class="card small"><b>"Our people are older and not techy."</b><br>"They tap one link and use their email, and no app is required. Bob tells them about it on the stream for a week, and we send a welcome email that walks them through it."</div>
-    <div class="card small"><b>"We already have Facebook."</b><br>"Keep it. We'll still post there. But Facebook decides who sees your posts, and you don't own that list. The community is yours, with no ads and no distractions, just the Word and your people."</div>
-    <div class="card small"><b>"Will it be a lot of work for us?"</b><br>"About 5 minutes a day: one announcement and answering a couple of comments. We set everything up, and the first month we help you get it going."</div>
-    <div class="card small"><b>"Can we just text people?"</b><br>"You can, but every text costs money, it needs carrier registration, and people can't talk to each other. This replaces the group text."</div>
+    <div class="card small"><b>"Our people are older and not techy."</b><br>"They tap one link and use their email; no app required. Bob mentions it on the stream for a week, and a welcome email walks them through it."</div>
+    <div class="card small"><b>"We already have Facebook."</b><br>"Keep it, we'll still post there. But Facebook decides who sees your posts, and you don't own that list. The community is yours: no ads, no distractions."</div>
+    <div class="card small"><b>"Will it be a lot of work?"</b><br>"About 5 minutes a day: one announcement and a couple of replies. We set it all up and help you get it going the first month."</div>
+    <div class="card small"><b>"Can we just text people?"</b><br>"Every text costs money, needs carrier registration, and people can't talk to each other. This replaces the group text."</div>
   </div>
 
-  <h3>Step 3: Social media post control (8 min)</h3>
+  <h3>Step 3 · Social media post control (8 min)</h3>
   <div class="card">
-    <p style="margin-top:0"><b>Ask:</b> "Who posts to YouTube and Facebook today? How long does it take each week? Who answers the comments?"</p>
-    <p><b>Say:</b> "You've got two choices, and both work."</p>
+    <p style="margin-top:0"><b>Ask:</b> "Who posts to YouTube and Facebook today? How long does it take? Who answers comments?"</p>
     <div class="two">
-      <div class="card" style="margin:0"><b>A. You control it</b><br>Included in the $97 plan. Show Social Planner: one screen, a week of posts scheduled to YouTube, Facebook and Instagram at once, and a calendar of what's going out.<br><span class="small muted">Internal note: Social Planner can't file videos into YouTube playlists or set some YouTube options, so playlists stay manual on this option.</span></div>
-      <div class="card" style="margin:0"><b>B. We do it, you approve</b><br>Social Care. We post, title and file every stream into its month playlist, and draft replies to comments. Bob approves the replies on one page, and anything pastoral comes to him. A report arrives monthly. We use partner access, so we never need their passwords.</div>
+      <div class="card" style="margin:0"><b>A. You control it</b><br>Included in the $97 plan. One screen, a week of posts scheduled to YouTube, Facebook and Instagram at once, and a calendar of what's going out.<br><span class="small muted">Internal: the scheduler can't file videos into YouTube playlists, so playlists stay manual on this option.</span></div>
+      <div class="card" style="margin:0"><b>B. We do it, you approve</b><br>Social Care. We post, title and file every stream into its month playlist, and draft replies Bob approves on one page; pastoral comments go to him. Monthly report. Partner access, never their passwords.</div>
     </div>
-    <p><b>Recommend B if</b> Bob or Cheryl are doing it themselves today. "Bob, your time is best spent teaching. Let us carry the rest."</p>
-    <p style="margin-bottom:0"><b>Price:</b> "Care is normally $397 a month by itself. With the website and community it's $447 a month for everything. We can start with two months at $199 so you can see it work."</p>
+    <p><b>Recommend B</b> if Bob or Cheryl post themselves today: "Bob, your time is best spent teaching. Let us carry the rest."</p>
+    <p style="margin-bottom:0"><b>Price:</b> "Care is $397 a month alone. With the website and community it's $447 a month for everything. We can start with two months at $199 so you can see it work."</p>
   </div>
 
   <h3>Close (5 min)</h3>
   <div class="card">
-    <p style="margin-top:0"><b>Recap in one sentence:</b> "A website that lets people watch, read and join, a community where you reach everyone with one post, and your social handled."</p>
-    <p><b>Show the three plans</b> ($97 / $447 / $647) and point at the middle one. Setup is $2,000 total with the ministry pricing.</p>
-    <p><b>Ask for the yes:</b> "Would you like us to get started? We'd have it live in 3 to 4 weeks."</p>
-    <p style="margin-bottom:0"><b>Next steps if yes:</b> we send the agreement and payment link today, book a 30-minute kickoff to collect the content and logins, and Bob announces the community on the stream the week we launch.</p>
+    <p style="margin-top:0"><b>Recap:</b> "A website that lets people watch, read and join, a community where you reach everyone with one post, and your social handled."</p>
+    <p><b>Show the three plans</b> ($97 / $447 / $647) and point at the middle one. Setup is $2,000 with ministry pricing.</p>
+    <p><b>Ask:</b> "Would you like us to get started? We'd have it live in about four weeks."</p>
+    <p style="margin-bottom:0"><b>If yes:</b> agreement and payment link today, a 30-minute kickoff this week, and Bob announces the community on the stream the week we launch.</p>
   </div>
 
-  <h3>Follow-up text (send the same day)</h3>
-  <div class="card" style="font-family:ui-monospace,Menlo,monospace;font-size:14px;white-space:pre-wrap">Pastor Bob and Cheryl, thank you for your time today. Here's the plan we talked about:
+  <h3>Follow-up text (same day)</h3>
+  <div class="card script">Pastor Bob and Cheryl, thank you for your time today. Here's the plan we talked about:
 
 1. New website: watch live, find any day, read today's passage, give and join.
 2. Daily Manna Family: one private place where you reach everyone with one post. No more texting everyone.
 3. Social media: [you post from one screen / we handle it and you approve].
 
-We can have it live in 3 to 4 weeks. Just reply "yes" and I'll send the agreement.</div>
+We can have it live in about four weeks. Just reply "yes" and I'll send the agreement.</div>
 </section>
 
 <section id="pricing">
-  <h2><span class="n">5</span>Price structure (proposed)</h2>
-  <p class="lead">Built on GoldWare's existing price list (website setup tiers and plans in our HighLevel products) and our Church Social Care pricing from October. It's all month to month.</p>
+  <h2><span class="n">05</span>Price <i>structure</i></h2>
+  <p class="lead">From GoldWare's price list (website setup tiers and monthly plans) and our Church Social Care pricing. All month to month.</p>
 
   <h3>One-time setup</h3>
   <div class="scroll"><table>
     <tr><th>Item</th><th class="r">List</th><th class="r">Ministry</th></tr>
-    <tr><td><b>Website redesign</b><div class="small muted" style="margin-top:4px">Our 5-page tier. Home, About + Statement of Faith, Watch (live embed + archive by month), Reading Plan (a real page plus the PDF), Ladies' Daily Manna, Give, Contact form, and Join the Community. Moved off Wix, domain pointed to the new site.</div></td><td class="r">$2,000</td><td class="r"><b>$1,500</b></td></tr>
-    <tr><td><b>Community build</b><div class="small muted" style="margin-top:4px">Group, channels, announcement channel, privacy settings, the join form on the site with an automation that adds people to the group, a welcome email, the reading plan as a course (first month loaded), a launch kit (a pinned comment, a post and a script line Bob reads on the stream), and a 30-minute training for Bob and Cheryl.</div></td><td class="r">$750</td><td class="r"><b>$500</b></td></tr>
-    <tr><td><b>Social setup</b><div class="small muted" style="margin-top:4px">Connect YouTube/Facebook (partner access, never their passwords), light channel cleanup, posting calendar. Waived with a website redesign.</div></td><td class="r">$250</td><td class="r"><b>$0</b></td></tr>
+    <tr><td><b>Website redesign</b><div class="d">Our 5-page tier: Home, About + Statement of Faith, Watch (live + archive by month), Reading Plan (a real page plus the PDF), Ladies' Daily Manna, Give, Contact, Join. Moved off Wix, domain pointed to the new site.</div></td><td class="r">$2,000</td><td class="r"><b>$1,500</b></td></tr>
+    <tr><td><b>Daily Manna Family build</b><div class="d">Group, channels, announcement channel, privacy, the join form with an automation that adds people and sends a welcome email, the reading plan as a course (first month loaded), a launch kit (pinned comment, post, script line for the stream), and a 30-minute training.</div></td><td class="r">$750</td><td class="r"><b>$500</b></td></tr>
+    <tr><td><b>Social setup</b><div class="d">Connect YouTube/Facebook (partner access), light channel cleanup, posting calendar. Waived with a website redesign.</div></td><td class="r">$250</td><td class="r"><b>$0</b></td></tr>
     <tr><td><b>Total one-time</b></td><td class="r">$3,000</td><td class="r"><b>$2,000</b></td></tr>
   </table></div>
 
   <h3>Monthly plans</h3>
   <div class="grid">
     <div class="tier">
-      <h4>Platform</h4>
+      <h4>Home Base</h4>
       <div class="price">$97<small>/mo</small></div>
       <div class="sub">Our Standard plan. They post their own social.</div>
       <ul>
         <li>Website hosting and updates on request</li>
         <li>Community with unlimited members</li>
         <li>Online giving, donor list, thank-you emails</li>
-        <li>CRM and one inbox for messages</li>
-        <li>Social Planner: they schedule YouTube/Facebook/Instagram posts from one screen</li>
+        <li>Contacts and one inbox</li>
+        <li>One-screen social scheduler (YouTube, Facebook, Instagram)</li>
       </ul>
       <div class="yr">Year 1 with setup: <b>$3,164</b></div>
     </div>
     <div class="tier rec">
       <span class="badge">Recommended</span>
-      <h4>Platform + Social Care</h4>
+      <h4>Home Base + Social Care</h4>
       <div class="price">$447<small>/mo</small></div>
-      <div class="sub">$97 + $397 Care = $494 if bought apart. Bundle saves $47.</div>
+      <div class="sub">$97 + $397 = $494 apart. Bundle saves $47.</div>
       <ul>
-        <li>Everything in Platform</li>
+        <li>Everything in Home Base</li>
         <li>We post their content on a release calendar</li>
-        <li>Each day's stream titled, described and filed in its month playlist</li>
-        <li>Weekday comment replies drafted, Bob approves on one page</li>
+        <li>Each day's stream titled, described and filed by month</li>
+        <li>Weekday comment replies drafted, Bob approves</li>
         <li>Pastoral and sensitive comments routed to Bob</li>
-        <li>Community announcement when each month's playlist is up</li>
         <li>Monthly report</li>
       </ul>
       <div class="yr">Year 1 with setup: <b>$7,364</b></div>
     </div>
     <div class="tier">
-      <h4>Platform + Channel Care</h4>
+      <h4>Full Care</h4>
       <div class="price">$647<small>/mo</small></div>
       <div class="sub">$97 + $597 = $694 apart. Bundle saves $47.</div>
       <ul>
         <li>Everything in Social Care</li>
-        <li>Up to 8 graphics a month (stream thumbnails, playlist covers, "this week's reading")</li>
-        <li>Page info kept current (schedule, Ladies' dates)</li>
+        <li>Up to 8 graphics a month (thumbnails, playlist covers, "this week's reading")</li>
+        <li>Page info kept current</li>
         <li>Quarterly channel tidy-up</li>
       </ul>
       <div class="yr">Year 1 with setup: <b>$9,764</b></div>
@@ -268,101 +314,91 @@ We can have it live in 3 to 4 weeks. Just reply "yes" and I'll send the agreemen
   <h3>Add-ons (any plan)</h3>
   <div class="scroll"><table>
     <tr><th>Add-on</th><th class="r">Price</th></tr>
-    <tr><td><b>Branded mobile app</b><div class="small muted" style="margin-top:4px">"Daily Manna" app in the App Store and Google Play with push notifications, communities and video. HighLevel builds it. Our cost is about $49/mo (verify). They need their own Apple and Google developer accounts, which take setup time.<sup><a href="#s10">10</a></sup></div></td><td class="r">$99/mo</td></tr>
-    <tr><td><b>Sermon Shorts</b><div class="small muted" style="margin-top:4px">Daily teaching makes great Shorts and Reels. Our existing offer.</div></td><td class="r">from $297/mo</td></tr>
-    <tr><td><b>Audio podcast feed</b><div class="small muted" style="margin-top:4px">Each day's study as an audio episode on Apple Podcasts and Spotify (same build as our RCC audio pilot).</div></td><td class="r">TBD</td></tr>
-    <tr><td><b>Email and text usage</b><div class="small muted" style="margin-top:4px">HighLevel's per-message usage fees. Community notifications are mostly in-app and email, so this stays small.</div></td><td class="r">at cost</td></tr>
+    <tr><td><b>Daily Manna mobile app</b><div class="d">Their own app in the App Store and Google Play with push notifications, the community and video. Our cost is about $49/mo (verify). They need their own Apple and Google developer accounts.</div></td><td class="r">$99/mo</td></tr>
+    <tr><td><b>Sermon Shorts</b><div class="d">Daily teaching makes great Shorts and Reels. Our existing offer.</div></td><td class="r">from $297/mo</td></tr>
+    <tr><td><b>Audio podcast feed</b><div class="d">Each day's study on Apple Podcasts and Spotify (same build as our RCC audio pilot).</div></td><td class="r">TBD</td></tr>
+    <tr><td><b>Email and text usage</b><div class="d">Per-message usage fees. Community notifications are mostly email and in-app, so this stays small.</div></td><td class="r">at cost</td></tr>
   </table></div>
 
-  <div class="callout">
-    <b>Pilot option to close the deal:</b> first 2 months of Social Care at $199/mo (Channel Care $299), the same pilot rate as our church social plan. Then the full price, month to month.
-  </div>
+  <div class="callout"><b>Pilot option to close:</b> first 2 months of Social Care at $199/mo (Full Care $299), then full price, month to month.</div>
 
   <h3>What it costs us</h3>
   <div class="card">
     <ul>
-      <li><b>HighLevel:</b> one more sub-account under our agency plan. There's no added fee unless we hit the sub-account cap: Agency Starter allows 3 sub-accounts.<sup><a href="#s11">11</a></sup> <b>Check our count first.</b></li>
-      <li><b>Social Care:</b> in our October model, about $95 of cost a month per client (AI, 10 min/week review, support at $30/h). That's about a 75% margin on $397. Channel Care costs about $145 a month.</li>
+      <li><b>Platform:</b> one more client account on our platform plan. No added fee unless we hit our account limit. <b>Check our count first.</b></li>
+      <li><b>Social Care:</b> about $95 of cost a month per client in our October model (AI, 10 min/week review, support at $30/h), about a 75% margin on $397. Full Care costs about $145 a month.</li>
       <li><b>Build time (estimate):</b> website 12–16 hours, community 4–6 hours, launch and training 2 hours.</li>
     </ul>
   </div>
 </section>
 
 <section id="compare">
-  <h2><span class="n">6</span>What they'd pay doing it piecemeal</h2>
-  <p class="lead">Use this to show that the bundle is fair.</p>
+  <h2><span class="n">06</span>What they'd pay <i>piecemeal</i></h2>
+  <p class="lead">Use this to show the bundle is fair.</p>
   <div class="scroll"><table>
     <tr><th>Piece and tool</th><th class="r">Price</th></tr>
-    <tr><td><b>Website</b><div class="small muted" style="margin-top:4px">Wix paid plans (what they're on now)</div></td><td class="r">$17–$159/mo<sup><a href="#s12">12</a></sup></td></tr>
-    <tr><td><b>Community</b><div class="small muted" style="margin-top:4px">Skool (Pro)</div></td><td class="r">$99/mo<sup><a href="#s13">13</a></sup></td></tr>
-    <tr><td><b>Community</b><div class="small muted" style="margin-top:4px">Circle (Professional)</div></td><td class="r">$89/mo yearly<sup><a href="#s14">14</a></sup></td></tr>
-    <tr><td><b>Community</b><div class="small muted" style="margin-top:4px">Mighty Networks (Launch)</div></td><td class="r">$79–$95/mo<sup><a href="#s15">15</a></sup></td></tr>
-    <tr><td><b>Church social, done for you</b><div class="small muted" style="margin-top:4px">Faithful Reach (with comment and DM replies)</div></td><td class="r">$170/week<sup><a href="#s16">16</a></sup></td></tr>
-    <tr><td><b>Church social, done for you</b><div class="small muted" style="margin-top:4px">REACHRIGHT</div></td><td class="r">$497–$997/mo<sup><a href="#s17">17</a></sup></td></tr>
+    <tr><td><b>Website</b><div class="d">Wix paid plans (what they're on now)</div></td><td class="r">$17–$159/mo<sup><a href="#s5">5</a></sup></td></tr>
+    <tr><td><b>Community</b><div class="d">Skool (Pro)</div></td><td class="r">$99/mo<sup><a href="#s6">6</a></sup></td></tr>
+    <tr><td><b>Community</b><div class="d">Circle (Professional)</div></td><td class="r">$89/mo yearly<sup><a href="#s7">7</a></sup></td></tr>
+    <tr><td><b>Community</b><div class="d">Mighty Networks (Launch)</div></td><td class="r">$79–$95/mo<sup><a href="#s8">8</a></sup></td></tr>
+    <tr><td><b>Church social, done for you</b><div class="d">Faithful Reach (with comment and DM replies)</div></td><td class="r">$170/week<sup><a href="#s9">9</a></sup></td></tr>
+    <tr><td><b>Church social, done for you</b><div class="d">REACHRIGHT</div></td><td class="r">$497–$997/mo<sup><a href="#s10">10</a></sup></td></tr>
   </table></div>
-  <p class="small muted">Wix plus a separate community tool comes to about $120–$250 a month, and they'd still do all the work, with the website, community and giving in three different places. On our Platform plan ($97) it's all in one system.</p>
+  <p class="small muted">Wix plus a community tool is about $120–$250 a month, and they'd still do all the work in three different places. On Home Base ($97) it's one system, run by us.</p>
 </section>
 
 <section id="howto">
-  <h2><span class="n">7</span>How we build it (step by step)</h2>
-  <p class="lead">About 3–4 weeks from yes to launch.</p>
+  <h2><span class="n">07</span>How we <i>build it</i></h2>
+  <p class="lead">About 4 weeks from yes to launch.</p>
   <ol class="steps">
-    <li><b class="t">Discovery call (30 min)</b><span class="who">Jason</span><br>Confirm: free community for everyone or a members tier; open discussion or mostly announcements; who answers comments (Bob, Cheryl, us); which social accounts (the Facebook is a <i>profile</i> link today, so check whether they have a Page); where the domain is registered; who owns the Stripe account for giving.</li>
-    <li><b class="t">Agreement and payment</b><span class="who">Jason</span><br>A payment link for the setup and a recurring link for the plan (Commerce › Payment Links in the Goldware LLC sub-account).</li>
-    <li><b class="t">Create their sub-account</b><span class="who">Jake</span><br>Check the sub-account cap first. Add Bob (and Cheryl) as Account users so they log in at app.goldware.io. Confirm Communities is turned on for the sub-account (Memberships › Communities).</li>
-    <li><b class="t">Collect content</b><span class="who">Jason</span><br>Take the text from their current site verbatim, plus their logo and photos, the reading-plan PDF, the YouTube channel and playlists, and the giving wording (including the 10% missions line). Don't make up any facts.</li>
-    <li><b class="t">Build the website as a draft</b><span class="who">Jake</span><br>Build in HighLevel (AI Studio or classic Sites). Embed the YouTube live and playlist with a plain iframe (raw script tags don't run in AI Studio). Add the reading plan as a page, a giving page with Stripe, a contact form going to the CRM, and the Join button. Test on a phone before showing them.</li>
-    <li><b class="t">Build the community</b><span class="who">Jake</span><br>Create the group "Daily Manna Family" with these channels: Announcements (owners only), Today's Reading, Prayer Requests, Ladies' Daily Manna, Introduce Yourself. Turn on email notifications. Add the One Year Bible course with the first month of lessons. Create a workflow so the site join form tags the contact, adds them to the group and sends a welcome email.</li>
-    <li><b class="t">Set up social</b><span class="who">Jason</span><br><b>Platform:</b> connect their accounts in Social Planner and show them how to use it. <b>Care:</b> have them add us as an Editor in YouTube Studio and as a Partner in Meta Business Suite. Never use their passwords.</li>
-    <li><b class="t">Review with Bob and Cheryl</b><span class="who">Jason</span><br>Walk them through the draft site and the community, collect changes, and do the 30-minute training: how to post an announcement, @everyone, Go Live, and approving replies.</li>
-    <li><b class="t">Launch</b><span class="who">Jake</span><br>Point the domain to HighLevel, test every page and form live, and do a test gift. Keep Wix until a week after launch, then they cancel it.</li>
-    <li><b class="t">Bring the followers in (no texting)</b><span class="who">Bob + us</span><br>Bob says it on the stream for a week: "Join us at ccdailymanna.org/join". We add a pinned YouTube comment, a link in the stream description, a Facebook post and a YouTube community post. Every new member gets the welcome email.</li>
-    <li><b class="t">After launch</b><span class="who">Jason</span><br>Check in after 2 weeks, and send the monthly report on Care plans. Offer the branded app or Sermon Shorts once the community is active.</li>
+    <li><b class="t">Discovery call (30 min)</b><span class="who">Jason</span><br>Confirm: free community or a members tier; open discussion or mostly announcements; who answers comments; which social accounts (their Facebook link is a <i>profile</i>, so check for a Page); where the domain is registered; who owns the Stripe account.</li>
+    <li><b class="t">Agreement and payment</b><span class="who">Jason</span><br>A payment link for the setup and a recurring link for the plan, from GoldWare billing.</li>
+    <li><b class="t">Create their client account</b><span class="who">Jake</span><br>Check our account limit first. Add Bob (and Cheryl) as users so they log in at app.goldware.io. Turn on Communities for the account.</li>
+    <li><b class="t">Collect content</b><span class="who">Jason</span><br>Their site text verbatim, logo and photos, the reading-plan PDF, the YouTube channel and playlists, and the giving wording (with the 10% missions line). Don't make up any facts.</li>
+    <li><b class="t">Build the website as a draft</b><span class="who">Jake</span><br>Embed the YouTube live and playlists with a plain iframe (raw script tags don't run in the AI site builder). Reading plan page, Stripe giving page, contact form into their contacts, Join button. Test on a phone first.</li>
+    <li><b class="t">Build the Daily Manna Family</b><span class="who">Jake</span><br>Group with Announcements (owners only), Today's Reading, Prayer Requests, Ladies' Daily Manna, Introduce Yourself. Email notifications on. One Year Bible course, first month loaded. A workflow: join form → tag → add to group → welcome email.</li>
+    <li><b class="t">Set up social</b><span class="who">Jason</span><br><b>Home Base:</b> connect their accounts to the scheduler and show them how to use it. <b>Care:</b> they add us as an Editor in YouTube Studio and a Partner in Meta Business Suite. Never their passwords.</li>
+    <li><b class="t">Review with Bob and Cheryl</b><span class="who">Jason</span><br>Walk through the draft site and community, collect changes, and a 30-minute training: posting an announcement, @everyone, Go Live, approving replies.</li>
+    <li><b class="t">Launch</b><span class="who">Jake</span><br>Point the domain to the new site, test every page and form live, do a test gift. Keep Wix a week after launch, then they cancel it.</li>
+    <li><b class="t">Bring the followers in (no texting)</b><span class="who">Bob + us</span><br>Bob says it on the stream for a week: "Join us at ccdailymanna.org/join". Pinned YouTube comment, stream description link, Facebook post, YouTube community post. Every new member gets the welcome email.</li>
+    <li><b class="t">After launch</b><span class="who">Jason</span><br>Check in after 2 weeks; monthly report on Care plans. Offer the app or Sermon Shorts once the community is active.</li>
   </ol>
 </section>
 
 <section id="decide">
-  <h2><span class="n">8</span>Decisions for Jason and Jake</h2>
+  <h2><span class="n">08</span>Decisions for <i>Jason &amp; Jake</i></h2>
   <div class="card">
     <ol>
-      <li class="q">Ministry discount: do we charge the $2,000 setup (website $1,500 + community $500) or the full $3,000?</li>
-      <li class="q">Which plan do we lead with: Platform + Social Care at $447 (my recommendation), or Platform at $97 with Care offered as an upgrade?</li>
-      <li class="q">Do we offer the pilot price ($199 Care for 2 months) or hold full price?</li>
-      <li class="q">Branded app now or later? I'd say later, once the community has members.</li>
-      <li class="q">Sub-account cap: are we under it, or does this push us to a higher HighLevel plan?</li>
+      <li class="q">Ministry discount: $2,000 setup (website $1,500 + community $500) or the full $3,000?</li>
+      <li class="q">Lead with Home Base + Social Care at $447 (recommended), or Home Base at $97 with Care as an upgrade?</li>
+      <li class="q">Offer the pilot price ($199 Care for 2 months) or hold full price?</li>
+      <li class="q">Mobile app now or later? Later, once the community has members.</li>
+      <li class="q">Account limit: are we under it, or does this push our platform plan up?</li>
     </ol>
   </div>
   <div class="card small muted">
-    <b>Risks:</b> (1) The community only works if Bob and Cheryl post in it for the first month, so put that in the training. (2) Followers are mostly older, so keep joining to one link and an email, with no app required. (3) Sources disagree on whether Communities is on HighLevel's Starter plan<sup><a href="#s6">6</a></sup><sup><a href="#s18">18</a></sup>, so confirm in our account before quoting. (4) Prices for outside tools move, so re-check before putting them in front of the client.
+    <b>Risks:</b> (1) The community only works if Bob and Cheryl post in it the first month, so build that into the training. (2) Followers are mostly older: keep joining to one link and an email, no app required. (3) Confirm Communities is on our platform plan before quoting. (4) Outside tool prices move; re-check before showing the client.
   </div>
 </section>
 
 <section id="sources">
-  <h2><span class="n">9</span>Sources</h2>
+  <h2><span class="n">09</span><i>Sources</i></h2>
   <ol class="src">
     <li id="s1"><a href="https://www.ccdailymanna.org/">ccdailymanna.org (home, donate, contact)</a></li>
     <li id="s2"><a href="https://www.ccdailymanna.org/about">ccdailymanna.org/about</a></li>
     <li id="s3"><a href="https://www.youtube.com/channel/UCPycVkOsnvfYMiBMHVf8i0A">YouTube: Calvary Chapel Daily Manna with Pastor Bob Boone</a></li>
     <li id="s4"><a href="https://calvary-chapel-daily-manna-ministries.sermon.net/22370099">sermon.net live stream page</a></li>
-    <li id="s5"><a href="https://help.gohighlevel.com/support/solutions/articles/155000000280-how-to-setup-customize-and-manage-your-communities">HighLevel: Set up and manage Communities</a></li>
-    <li id="s6"><a href="https://ghldesk.com/gohighlevel-communities">GHLDesk: Communities included, unlimited members and channels</a></li>
-    <li id="s7"><a href="https://gohighlevel.com/post/skool-alternative">HighLevel: Communities with groups, courses, live sessions, paid access</a></li>
-    <li id="s8"><a href="https://help.gohighlevel.com/support/solutions/articles/155000005145-communities-announcement-channel-and-notification">HighLevel: Announcement channel and notifications</a> · <a href="https://ideas.gohighlevel.com/changelog/communities-everyone-tag-and-more-notifications">@everyone tag</a></li>
-    <li id="s9"><a href="https://help.gohighlevel.com/en/support/solutions/articles/155000006673">HighLevel: Go Live in Communities</a></li>
-    <li id="s10"><a href="https://ideas.gohighlevel.com/changelog/client-portal-kollab-whitelabel-and-reselling-is-now-live-in-labs">HighLevel: Client Portal branded mobile app (resellable)</a></li>
-    <li id="s11"><a href="https://www.gohighlevel.com/pricing">HighLevel pricing (Agency Starter includes 3 sub-accounts)</a></li>
-    <li id="s12"><a href="https://www.verlua.com/blog/wix-website-cost">Wix cost 2026 ($17–$159/mo per Wix's US pricing)</a></li>
-    <li id="s13"><a href="https://www.skoolfiles.com/blog/how-much-does-skool-cost">Skool pricing 2026 ($9 Hobby, $99 Pro)</a></li>
-    <li id="s14"><a href="https://circle.so/pricing">Circle pricing</a></li>
-    <li id="s15"><a href="https://mightynetworks.com/pricing">Mighty Networks pricing</a></li>
-    <li id="s16"><a href="https://www.faithful-reach.com/pricing">Faithful Reach pricing</a></li>
-    <li id="s17"><a href="https://reachrightstudios.com/pricing">REACHRIGHT pricing</a></li>
-    <li id="s18"><a href="https://rocketlauncher.ai/features/communities">RocketLauncher: Communities plan availability</a></li>
+    <li id="s5"><a href="https://www.verlua.com/blog/wix-website-cost">Wix cost 2026 ($17–$159/mo per Wix's US pricing)</a></li>
+    <li id="s6"><a href="https://www.skoolfiles.com/blog/how-much-does-skool-cost">Skool pricing 2026 ($9 Hobby, $99 Pro)</a></li>
+    <li id="s7"><a href="https://circle.so/pricing">Circle pricing</a></li>
+    <li id="s8"><a href="https://mightynetworks.com/pricing">Mighty Networks pricing</a></li>
+    <li id="s9"><a href="https://www.faithful-reach.com/pricing">Faithful Reach pricing</a></li>
+    <li id="s10"><a href="https://reachrightstudios.com/pricing">REACHRIGHT pricing</a></li>
   </ol>
-  <p class="small muted">GoldWare prices are from our HighLevel product list (website setup 1/3/5/10+ pages: $300/$1,000/$2,000/$3,000; Standard $97/mo) and the Church Social Management pricing doc (Care $397, Channel Care $597, setup $250, pilot $199/$299).</p>
+  <p class="small muted">GoldWare prices are from our price list (website setup 1/3/5/10+ pages: $300/$1,000/$2,000/$3,000; Standard $97/mo) and our Church Social Management pricing (Care $397, Full Care $597, setup $250, pilot $199/$299).</p>
 </section>
 
 </main>
-<footer><div class="wrap">GoldWare · internal working draft · Nov 12, 2026 · not for the client</div></footer>
+<footer><div class="wrap"><span><img src="img/goldware.png" alt="">GoldWare · internal working plan · Nov 2026</span><span>Prepared for Calvary Chapel Daily Manna Ministries</span></div></footer>
 </body>
 </html>
